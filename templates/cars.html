@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cars</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .car-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .car-card {
+      background: #fff;
+      padding: 16px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .car-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    }
+    .car-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .car-detail {
+      font-size: 0.9rem;
+      color: #555;
+      margin: 3px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Cars</h1>
+  <div class="car-list">
+    {% for car in cars %}
+      <div class="car-card">
+        <div class="car-title">{{ car.brand }} {{ car.model }}</div>
+        <div class="car-detail">Engine: {{ car.engine_volume }}</div>
+        <div class="car-detail">Power: {{ car.power }}</div>
+        <div class="car-detail">Fuel: {{ car.fuel_consumption }}</div>
+        <div class="car-detail">Transmission: {{ car.transmission }}</div>
+        <div class="car-detail">Drive: {{ car.drive_type }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</body>
+</html>
